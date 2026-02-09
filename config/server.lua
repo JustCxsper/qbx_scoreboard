@@ -1,7 +1,7 @@
 return {
     illegalActions = {
         storerobbery = {
-            minimumPolice = 2,
+            minimumPolice = 0,
             label = 'Store Robbery',
         },
         bankrobbery = {

@@ -21,12 +21,35 @@ lib.callback.register('qbx_scoreboard:server:getScoreboardData', function()
     return totalPlayers, policeCount, onDutyAdmins
 end)
 
+lib.callback.register('qbx_scoreboard:server:getOnlinePlayers', function(source)
+    local players = {}
+
+    for _, player in pairs(exports.qbx_core:GetQBPlayers()) do
+        if player then
+            local charInfo = player.PlayerData.charinfo
+            local name = charInfo and (charInfo.firstname .. ' ' .. charInfo.lastname) or 'Unknown'
+            local id = player.PlayerData.source
+            local jobLabel = player.PlayerData.job.label or player.PlayerData.job.name or 'Civilian'
+            local onDuty = player.PlayerData.job.onduty and ' (On Duty)' or ''
+
+            table.insert(players, {
+                name = name,
+                id   = id,
+                job  = jobLabel .. onDuty,
+            })
+        end
+    end
+
+    table.sort(players, function(a, b) return a.name < b.name end)
+
+    return players
+end)
+
 local function setActivityBusy(name, bool)
     local illegalActions = GlobalState.illegalActions
     illegalActions[name].busy = bool
     GlobalState.illegalActions = illegalActions
 end
 
----@deprecated use the setActivityBusy export instead
 RegisterNetEvent('qb-scoreboard:server:SetActivityBusy', setActivityBusy)
 exports('SetActivityBusy', setActivityBusy)
