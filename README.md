@@ -20,6 +20,8 @@
 
 ![Hover Image Example](https://cdn.discordapp.com/attachments/1457117971553190055/1470459138265059338/image.png?ex=698b5f4a&is=698a0dca&hm=1fd98482e8d298a82aa8ace4a6f7cbba5135da3cc2411feb7318b9eb66937d06&)
 
+![Player Preview Example](https://media.discordapp.net/attachments/1470469461046722642/1470469462435037547/image.png?ex=698b68e7&is=698a1767&hm=0b809e5dc52ee003a6f3dcd4e5c3c5380e14bd45deaddeb70227e4196c812e6b&=&format=webp&quality=lossless)
+
 ### Requirements
 - ox_lib
 - qbx_core
